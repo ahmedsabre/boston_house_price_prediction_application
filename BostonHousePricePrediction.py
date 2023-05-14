@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 import shap
@@ -46,7 +47,43 @@ if menu=='Visualization':
         plt.figure(figsize=(15,8)) 
         fig=px.scatter(data_frame=df, x='lstat', y='medv',color='age')  
         st.plotly_chart(fig)
-  
+
+    if graph=='bar plot':
+        st.subheader('counts of accessibility to radial highways')
+        fig=plt.figure(figsize=(15,8))
+        sns.countplot(data=df,x='rad') 
+        plt.xlabel('radial highway',fontsize=20)
+        plt.ylabel('count',fontsize=20) 
+        st.pyplot(fig)
+
+        st.subheader('counts of tract river bounds')
+        fig=plt.figure(figsize=(15,8))
+        sns.countplot(data=df,x='chas') 
+        plt.xlabel('river bounds',fontsize=20)
+        plt.ylabel('count',fontsize=20) 
+        st.pyplot(fig)
+
+    if graph=='histogram':
+        st.subheader('age distribution')
+        fig=plt.figure(figsize=(15,8))
+        sns.histplot(data=df,x='age',bins=12) 
+        plt.xlabel('age',fontsize=20)
+        plt.ylabel('count',fontsize=20) 
+        st.pyplot(fig)
+
+        st.subheader('median average distribution')
+        fig=plt.figure(figsize=(15,8))
+        sns.histplot(data=df,x='medv',bins=12) 
+        plt.xlabel('median average',fontsize=20)
+        plt.ylabel('count',fontsize=20) 
+        st.pyplot(fig)
+
+    if graph=='correlation':
+       st.header('correlations')
+       fig=plt.figure(figsize=(35,12))
+       sns.heatmap(df.corr(),annot=True)
+       st.pyplot(fig)
+
 if menu=='Price Prediction':
     st.sidebar.header('input parameters')
     x=df.drop('medv',axis=1)
