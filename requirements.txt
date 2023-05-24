@@ -1,13 +1,12 @@
 
-anaconda-client==1.11.1
+
 anaconda-navigator==2.4.0
 
 conda==23.3.1
-conda-build==3.23.3
 
-conda-repo-cli==1.0.27
 
-conda-verify==3.4.2
+
+
 
 datashape==0.5.4
 
@@ -17,7 +16,7 @@ matplotlib==3.7.1
 
 pandas-datareader==0.10.0
 
-pyls-spyder==0.4.0
+
 
 scipy==1.10.0
 
@@ -27,7 +26,7 @@ slicer==0.0.7
 
 streamlit==1.22.0
 
-tables==3.7.0
+
 
 tensorboard==2.12.3
 tensorboard-data-server==0.7.0
